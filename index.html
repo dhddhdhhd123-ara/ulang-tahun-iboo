@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bg-music" src="audio/lagu.mp3" loop></audio>
+
+    <button id="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+    <div class="container">
+        <header class="fade-in">
+            <h1>Happyyy Birthdayyy Ganteng! 🎉</h1>
+            <p class="subtitle">dipencet satu satu yaaa.</p>
+            
+            <div id="countdown-box" class="countdown-container">
+                <p>Menuju Hari Spesialmu: </p>
+                <div id="timer">00 Hari 00 Jam 00 Menit 00 Detik</div>
+            </div>
+        </header>
+
+        <section class="gallery fade-in">
+            <h2>Our Memories 📸</h2>
+            <div class="photo-grid">
+                <div class="photo-card" onclick="openModal(['img/momen 1.jpeg', 'img/momen 2.jpeg', 'img/momen 3.jpeg'], 'haii, aku yang sekarang udah 18 tahun yaa. ga terasa sekarang aku udah besar, bentar lagi aku mau jadi taruna ya? aamiin. makasi ya udah bertahan sampai sejauh ini. mungkin ga semua berjalan sesuai yang kita bayangin waktu kecil tapi aku bangga karena kamu ga nyerah. semangat ya aku yakin kita bisa berhasil. ', 'Momen Indah 1 ✨')">
+                    <img src="img/momen.jpeg" alt="Memori 1">
+                    <p>Dari kamu kecil untuk kamu sekarang ✨</p>
+                </div>
+                <div class="photo-card" onclick="openModalVideo('img/video kita.mp4',  'Momen Video Seru 🎬')">
+                    <img src="img/foto2.jpeg" alt="Memori 2">
+                    <p>Tertawa Bersama 🤍</p>
+                </div>
+                <div class="photo-card" onclick="openModal(['img/penting1.jpeg', 'img/penting2.jpeg', 'img/penting3.jpeg'], 'moga di umur kali ini bisa lebih bahagia lagi, di lancarkan proses pendaftarannya, lolos dengan hasil yang sangat memuaskan yang bikin ibu ayah lingga keluarga dan aku bangga. semangatnya bertambah, love u sayang aku akan selalu di sini.', 'Hari Spesial 🎂')">
+                    <img src="img/foto3.jpeg" alt="Memori 3">
+                    <p>Hari Spesial 🎂</p>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="wishes-box fade-in">
+            <h2>A Little Message For You ✉️</h2>
+            
+            <div class="envelope-wrapper" onclick="openEnvelope()">
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="pocket"></div>
+                    <div class="letter">
+                        <p id="typing-text" class="wishes-text"></p>
+                    </div>
+                </div>
+            </div>
+            <p id="envelope-hint" class="gift-hint">Klik amplopnya untuk membuka surat ✉️</p>
+            
+            <button id="open-gift-section-btn" style="display: none;" onclick="showGiftSection()">Buka Kado Spesial 🎁</button>
+
+            <div id="gift-container" class="gift-section" style="display: none;">
+                <div class="gift-box" onclick="burstHearts(event)">🎁</div>
+                <p class="gift-hint">Klik kadonya dong! ✨</p>
+                
+                <button id="secret-message-btn" class="secret-btn" style="display: none;" onclick="showFinalSurprise()">Klik Ini Juga dong Ganteng! 🫣</button>
+                
+                <div id="final-surprise-text" class="final-text" style="display: none;">
+                    <p>"Cieee yang nemu pesan rahasia! Pokoknya doa terbaik buat kamu, semoga dilancarkan segala urusannya dan selalu bahagia ya! Thank you for everything ✨💙"</p>
+                    
+                    <div class="question-box">
+                        <p>Btw... Kamu sayang aku ga? 🫣</p>
+                        <div class="btn-group">
+                            <button id="btn-yes" onclick="sayangBanget()">Sayang Banget! 💖</button>
+                            <button id="btn-no" onmouseover="flyButton()" onclick="flyButton()">Nggak 😜</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Judul Momen</h3>
+            <div id="modalPhotoGrid" class="modal-photo-grid"></div>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

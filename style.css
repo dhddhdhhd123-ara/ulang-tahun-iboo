@@ -1,0 +1,275 @@
+/* Reset & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(rgba(15, 32, 39, 0.7), rgba(15, 32, 39, 0.7)), url('img/baground.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+/* Header */
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 10px rgba(0, 196, 255, 0.5);
+    animation: bounce 2s infinite;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #a0e0ff;
+    margin-bottom: 20px;
+}
+
+/* FEATURE 2: STYLING COUNTDOWN */
+.countdown-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    margin-bottom: 30px;
+}
+#timer {
+    color: #00d2ff;
+    font-size: 1.1rem;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+/* Galeri Foto */
+.gallery { margin-bottom: 40px; }
+.gallery h2 { margin-bottom: 20px; color: #00d2ff; }
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+.photo-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.photo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+}
+.photo-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Kotak Ucapan & FEATURE 4: AMPLOP SURAT INTERAKTIF */
+.wishes-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid #00d2ff;
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+.wishes-box h2 { color: #00d2ff; margin-bottom: 15px; }
+
+.envelope-wrapper {
+    height: 200px;
+    margin: 30px auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.envelope {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    background: #009ec2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.envelope .flap {
+    position: absolute;
+    top: 0; left: 0; width: 0; height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-top: 85px solid #00d2ff;
+    transform-origin: top;
+    transition: transform 0.4s ease 0.2s, z-index 0.2s ease 0.2s;
+    z-index: 4;
+}
+.envelope .pocket {
+    position: absolute;
+    top: 0; left: 0; width: 0; height: 0;
+    border-left: 125px solid #00819e;
+    border-right: 125px solid #00819e;
+    border-bottom: 75px solid #0091b3;
+    border-top: 75px solid transparent;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 3;
+}
+.envelope .letter {
+    position: absolute;
+    bottom: 0; left: 10px;
+    width: 230px; height: 130px;
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    color: #333;
+    overflow-y: auto;
+    transition: transform 0.5s ease;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+/* Efek saat amplop terbuka */
+.envelope-wrapper.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+.envelope-wrapper.open .letter {
+    transform: translateY(-100px);
+    height: 180px;
+    z-index: 5;
+}
+
+.wishes-text {
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+/* Tombol Musik Terapung */
+#music-btn {
+    position: fixed;
+    top: 20px; right: 20px;
+    background: #00d2ff; color: #fff;
+    border: none; padding: 10px 20px;
+    border-radius: 20px; cursor: pointer;
+    font-weight: bold; z-index: 1000;
+    transition: 0.3s;
+}
+#music-btn:hover { background: #009ec2; transform: scale(1.05); }
+
+/* Kado Raksasa */
+#open-gift-section-btn {
+    background: #00d2ff; color: white; border: none;
+    padding: 12px 25px; font-weight: bold; border-radius: 25px;
+    cursor: pointer; margin-top: 20px; transition: 0.3s;
+}
+.gift-section {
+    margin-top: 120px; /* Jarak ditambah agar tidak menabrak surat */
+    padding-top: 20px; border-top: 1px dashed rgba(255, 255, 255, 0.2);
+}
+.gift-box {
+    font-size: 15rem !important; cursor: pointer; display: inline-block;
+    animation: giftWobble 1.5s infinite ease-in-out; transition: transform 0.2s; user-select: none;
+}
+@keyframes giftWobble {
+    0%, 100% { transform: rotate(0) scale(1); }
+    25% { transform: rotate(-8deg) scale(1.05); }
+    75% { transform: rotate(8deg) scale(1.05); }
+}
+.gift-hint { color: #a0e0ff; font-size: 1rem; font-style: italic; font-weight: bold; }
+
+/* Tombol & Teks Rahasia */
+.secret-btn {
+    background: #ff4a4a; color: white; border: none; padding: 10px 20px;
+    font-weight: bold; border-radius: 20px; cursor: pointer; margin-top: 25px;
+}
+.final-text {
+    margin-top: 20px; background: rgba(0, 210, 255, 0.1);
+    border: 1px solid rgba(0, 210, 255, 0.3); padding: 20px; border-radius: 12px;
+}
+
+/* FEATURE 5: INTERACTIVE TRICK BUTTONS (SAYANG GAK?) */
+.question-box {
+    margin-top: 25px; padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.question-box p { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; color: #00d2ff;}
+.btn-group {
+    display: flex; justify-content: center; gap: 20px; height: 50px; position: relative;
+}
+#btn-yes {
+    background: #ff4a4a; color: white; border: none; padding: 10px 25px;
+    font-weight: bold; border-radius: 20px; cursor: pointer; transition: 0.2s;
+}
+#btn-no {
+    background: #555; color: white; border: none; padding: 10px 25px;
+    font-weight: bold; border-radius: 20px; cursor: pointer;
+    position: absolute; transition: all 0.1s ease;
+}
+
+/* FEATURE 3: BALON & KONFETI */
+.balloon {
+    position: fixed; bottom: -100px;
+    font-size: 2.5rem; z-index: 1;
+    animation: floatUp var(--duration) linear infinite;
+    user-select: none; pointer-events: none;
+}
+@keyframes floatUp {
+    0% { transform: translateY(0) translateX(0); opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% { transform: translateY(-110vh) translateX(var(--drift)); opacity: 0; }
+}
+
+.heart-particle {
+    position: fixed; z-index: 9999; pointer-events: none; font-size: 2.5rem;
+    animation: flyUp var(--duration) ease-out forwards;
+}
+@keyframes flyUp {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0) rotate(var(--rot)); opacity: 0; }
+}
+
+/* Modal Pop Up */
+.modal {
+    display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(15, 32, 39, 0.8); backdrop-filter: blur(8px); justify-content: center; align-items: center; padding: 20px;
+}
+.modal-content {
+    background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px; border-radius: 20px; max-width: 600px; width: 100%; text-align: center; position: relative;
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.close-btn { position: absolute; top: 10px; right: 18px; color: rgba(255, 255, 255, 0.6); font-size: 32px; cursor: pointer; }
+.close-btn:hover { color: #ff4a4a; }
+#modalTitle { color: #00d2ff; font-size: 1.5rem; margin-bottom: 15px; }
+.modal-photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
+.modal-photo-grid img { width: 100%; height: 140px; object-fit: cover; border-radius: 10px; }
+@media (max-width: 480px) { .modal-photo-grid { grid-template-columns: 1fr; } .modal-photo-grid img { height: 180px; } }
+.fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 1.5s forwards; }
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
